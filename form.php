@@ -27,6 +27,17 @@
         <p class="title">Formulaire de contact</p>
 
         <form action="thanks.php" method="post">
+
+            <div>
+                <label for="mail_topic">Sujet</label>
+                <select name="mail_topic" id="mail_topic" required>
+                    <option value="">--Choisissez un sujet--</option>
+                    <option value="Information">Information</option>
+                    <option value="Réclamation">Réclamation</option>
+                    <option value="Autre">Autre</option>
+                </select>
+            </div>
+
             <div>
                 <label for="first_name">Prénom :</label>
                 <input type="text" id="first_name" name="first_name" required>
@@ -45,15 +56,6 @@
             <div>
                 <label for="user_phone">Téléphone :</label>
                 <input type="tel" id="user_phone" name="user_phone" pattern="[0-9]{10}" required>
-            </div>
-
-            <div>
-                <label for="mail_topic">Choisissez votre contact</label>
-                <select name="mail_topic" id="mail_topic" required>
-                    <option value="information">Information</option>
-                    <option value="reclamation">Réclamation</option>
-                    <option value="autre">Autre</option>
-                </select>
             </div>
 
             <div>

@@ -6,37 +6,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $data = array_map('trim', $_POST);
 
+    if (!isset($data['mail_topic']) || empty($data['mail_topic']))
+        $errors[] = "Le sujet est obligatoire.";
+
 
     if ((!isset($data['first_name'])) || (empty($data['first_name']))) {
-        $errors[] = "Il manque le first_name !";
+        $errors[] = "Le prénom est obligatoire.";
     }
 
 
     if ((!isset($data['last_name'])) || (empty($data['last_name']))) {
-        $errors[] = "Il manque le last_name !!!!";
+        $errors[] = "Le nom de famille est obligatoire.";
     }
 
 
-    if (!filter_var($data['user_email'], FILTER_VALIDATE_EMAIL) || empty($data['user_email'])) {
-        $errors[] = "Le user_email est manquant ou incorrect";
+    if ((!isset($data['user_email'])) || !filter_var($data['user_email'], FILTER_VALIDATE_EMAIL) || empty($data['user_email'])) {
+        $errors[] = "L'adresse mail est obligatoire et doit être renseigné au bon format.";
     }
 
 
     if (!isset($data['user_phone']) || empty($data['user_phone'])) {
-        $errors[] = "Vous devez choisir votre user_phone!!!!";
+        $errors[] = "Le n° de téléphone est obligatoire.";
     }
 
 
     if (!isset(($data['message'])) || empty($data['message'])) {
-        $errors[] = "Vous devez mettre un message plus long!!!!";
+        $errors[] = "Le message est obligatoire.";
     }
 }
 
-/* 
-foreach ($errors as $error) : ?>
-    <li><?= $error ?></li>
-<?php endforeach; ?>
-*/
+
 ?>
 
 <!DOCTYPE html>
